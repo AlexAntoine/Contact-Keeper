@@ -2,9 +2,10 @@
   "name": "Contact-Keeper-App",
   "version": "1.0.0",
   "description": "Contact Keeper App",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemone server.js"
   },
   "author": "Don-Alex Antoine",
   "license": "MIT",
@@ -17,6 +18,7 @@
     "express-fileupload": "^1.4.0",
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^6.7.0",
+    "express-validator": "^6.15.0",
     "helmet": "^6.0.1",
     "hpp": "^0.2.3",
     "jsonwebtoken": "^9.0.0",
@@ -24,5 +26,9 @@
     "morgan": "^1.10.0",
     "slugify": "^1.6.5",
     "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20"
   }
 }
