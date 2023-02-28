@@ -5,14 +5,14 @@ const asyncHandler = require('../middleware/async')
 // @route
 // @access
 exports.exampleMethod = asyncHandler(async(req, res, next)=>{
-
+ res.send('Hello from user.js')
 });
 
 // @desc
 // @route
 // @access
 exports.exampleMethodTwo = asyncHandler(async(req, res, next)=>{
-
+    
 });
 
 // @desc

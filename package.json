@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemone server.js"
+    "server": "nodemon server.js"
   },
   "author": "Don-Alex Antoine",
   "license": "MIT",
