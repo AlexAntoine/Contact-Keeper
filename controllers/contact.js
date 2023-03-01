@@ -13,6 +13,7 @@ exports.exampleMethod = asyncHandler(async(req, res, next)=>{
 // @access
 exports.exampleMethodTwo = asyncHandler(async(req, res, next)=>{
 
+    
 });
 
 // @desc
