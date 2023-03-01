@@ -1,5 +1,6 @@
 const express = require('express');
 const { validationResult } = require('express-validator');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const asyncHandler = require('../middleware/async')
@@ -41,7 +42,23 @@ exports.exampleMethodTwo = asyncHandler(async(req, res, next)=>{
 
     await user.save();
 
-    res.send('User saved');
+    const payload = {
+        user:{
+            id:user.id
+        }
+    }
+
+    jwt.sign(payload, 'abcd', {
+        expiresIn:360000
+
+    },(err, token)=>{
+
+        if(err){
+            throw err
+        }
+        
+        res.json({token})
+    });
 
 });
 
