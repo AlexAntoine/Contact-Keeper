@@ -1,1 +1,2 @@
 Created register route and hash passwords
+Created JSON Web Token
