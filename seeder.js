@@ -5,14 +5,14 @@ const colors = require('colors');
 const asyncHandler = require('./middleware/async');
 
 //Models
-const ExampleModel =require('./models/exampleModel');
-const asyncHandler = require('./middleware/async');
+const User =require('./models/User');
 
 //DATABASE CONNECTION
-mongoose.connect('',  {useNewUrlParser:true, useUnifiedTopology: true});
+mongoose.set('strictQuery', true);
+mongoose.connect('mongodb://127.0.0.1:27017/contactsDB',  {useNewUrlParser:true, useUnifiedTopology: true});
 
 //READ JSON FILES
-const examples = JSON.parse(fs.readFileSync(`${__dirname}/_data/data.json`, 'utf-8'))
+// const examples = JSON.parse(fs.readFileSync(`${__dirname}/_data/data.json`, 'utf-8'))
 
 //Import into DB
 const importData = async()=>{
@@ -32,8 +32,8 @@ const importData = async()=>{
 const deleteData = async()=>{
 
     try{
-        await ExampleModel.deleteMany(examples);
-
+        await User.deleteMany();
+        console.log('Data Destroyed.....'.red.inverse);
         process.exit(1);
     }catch(e){
         console.log(e);
