@@ -6,11 +6,14 @@ const User = require('../models/User');
 const asyncHandler = require('../middleware/async');
 const ErrorResponse = require('../utils/errorResponse');
 
-// @desc
-// @route
-// @access
-exports.exampleMethod = asyncHandler(async(req, res, next)=>{
- res.send('hello from auth.js')
+// @desc Get logged in user
+// @route GET /api/v1/auth   
+// @access Private
+exports.getLoggedInUser = asyncHandler(async(req, res, next)=>{
+
+    const user = await User.findById(req.user.id).select('-password');
+
+    res.json(user);
 });
 
 // @desc Login User
