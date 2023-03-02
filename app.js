@@ -35,13 +35,16 @@ app.use(xss());
 app.use(hpp());
 app.use(cors());
 
-app.use(errorHandler)
+
 
 app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/api/v1/users', users);
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/contacts', contacts);
+
+//Error Hanlder has to postion underneath the routes
+app.use(errorHandler);
 
 module.exports = app;
 
