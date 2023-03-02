@@ -1,30 +1,30 @@
-const ErrorResponse = require('../utils/errorResponse');
+const ErrorResponse = require("../utils/errorResponse");
 
 const errorHandler = (error, req, res, next)=>{
-
     let err = {...error};
+    // console.log('Error.message: ', error)
 
     err.message = error.message;
 
+    // console.log('line 7: ', err);
+ 
     if(error.name === 'CastError'){
         const message = `Resource not found`;
+       
+        err = new ErrorResponse(message, 404)
 
-        err = new ErrorResponse(message, 404);
     }
 
     if(err.code === 11000){
-        
-        const message = `Duplicate field value entered`;
-        err = new ErrorResponse(message, 400);
+        const message = 'Duplicate field value entered';
+        err = new ErrorResponse(message, 400)
     }
 
     if(err.name === 'ValidationError'){
-
         const message = Object.values(err.errors).map(value => value.message);
         err = new ErrorResponse(message, 400);
     }
-
-    res.status(err.statuCode || 500).json({success:false, err: err.message || 'Server Error'})
+    res.status(err.statusCode || 500).json({success:false, err: err.message || 'Server Error'})
 }
 
 module.exports = errorHandler;
