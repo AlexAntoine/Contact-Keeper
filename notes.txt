@@ -1,2 +1,4 @@
 Created register route and hash passwords
 Created JSON Web Token
+
+Update feature is not working correctly
