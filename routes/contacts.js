@@ -1,9 +1,12 @@
 const express = require('express');
-const {exampleMethod, exampleMethodFour, exampleMethodThree,exampleMethodTwo} = require('../controllers/contact');
+const {check, validationResult} = require('express-validator');
+const User = require('../models/User');
+const auth = require('../middleware/auth')
+const {getAllContacts, createContact, updateContact, exampleMethodThree,} = require('../controllers/contact');
 
 const router = express.Router();
 
-router.route('/').get(exampleMethod).post(exampleMethodTwo);
-router.route('/:id').put(exampleMethodThree).delete(exampleMethodFour);
+router.route('/').get(auth,getAllContacts).post(auth, [check('name','Name is required').not().isEmpty()],createContact);
+router.route('/:id').put(updateContact).delete();
 
 module.exports = router;
