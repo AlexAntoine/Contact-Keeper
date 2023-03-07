@@ -52,8 +52,8 @@ exports.updateContact = asyncHandler(async(req, res, next)=>{
     if(type){contactField.type=type}
 
     let contact = await Contact.findById(req.params.id);
-    console.log(req.params)
-    console.log(contact);
+    console.log('line 55: ',req.params.id)
+    console.log('line 56: ',contact);
     if(!contact){
         return res.status(404).json({msg:'Contact not found'});
     }
@@ -62,13 +62,14 @@ exports.updateContact = asyncHandler(async(req, res, next)=>{
 
         return res.status(401).json({msg:'Not Authorized'});
     }
-    console.log(contactField);
-    contact = await Contact.findByIdAndUpdate(req.params.id,
+    console.log('line 65: ',contactField);
+    const nt = await Contact.findByIdAndUpdate(req.params.id,
         {$set:contactField},
         {new:true}
     );
-
-    res.json(contact)
+    
+    console.log(nt);
+    // res.json({contact})
 
 });
 
