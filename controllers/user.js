@@ -5,17 +5,10 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const asyncHandler = require('../middleware/async')
 
-// @desc
-// @route
-// @access
-exports.exampleMethod = asyncHandler(async(req, res, next)=>{
- res.send('Hello from user.js')
-});
-
-// @desc
-// @route
-// @access
-exports.exampleMethodTwo = asyncHandler(async(req, res, next)=>{
+// @desc Register User
+// @route /api/v1/users
+// @access Public
+exports.register = asyncHandler(async(req, res, next)=>{
     const errors = validationResult(req);
     // console.log('line 17: ', errors);
 
@@ -59,12 +52,5 @@ exports.exampleMethodTwo = asyncHandler(async(req, res, next)=>{
         
         res.json({token})
     });
-
-});
-
-// @desc
-// @route
-// @access
-exports.exampleMethodThree = asyncHandler(async(req, res, next)=>{
 
 });

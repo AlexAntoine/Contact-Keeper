@@ -32,16 +32,14 @@ exports.login = asyncHandler(async(req, res, next)=>{
 
     if(!user){
         console.log(`User doesn't exist`);
-        // res.status(400).json({msg:'Invalid Credientals'});
-        return next(new ErrorResponse('Invalid Credientalsddd', 400))
+        res.status(400).json({msg:'Invalid Credientals'});
     }
 
     const isMatached = await bcrypt.compare(password, user.password)
 
     if(!isMatached){
         console.log(`Password doesn't match`);
-        // res.status(400).json({msg:'Invalid Credientals'});
-    //    return next(new ErrorResponse('Invalid Credientals', 400))
+        res.status(400).json({msg:'Invalid Credientals'});
     }
 
     const payload = {
@@ -61,11 +59,4 @@ exports.login = asyncHandler(async(req, res, next)=>{
         
         res.json({token})
     });
-});
-
-// @desc
-// @route
-// @access
-exports.exampleMethodThree = asyncHandler(async(req, res, next)=>{
-
 });
