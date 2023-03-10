@@ -2,3 +2,7 @@ Created register route and hash passwords
 Created JSON Web Token
 
 Update feature is not working correctly
+Fixed update feature issue. I didn't add the 
+middleware that had the user id.
+
+Backend api complete
