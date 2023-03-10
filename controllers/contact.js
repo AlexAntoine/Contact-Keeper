@@ -3,7 +3,6 @@ const asyncHandler = require('../middleware/async');
 const { validationResult } = require('express-validator');
 const Contact = require('../models/Contact');
 const ErrorResponse = require('../utils/errorResponse');
-const { validate } = require('../models/Contact');
 
 // @desc Get All Contacts
 // @route api/v1/contacts
@@ -41,41 +40,44 @@ exports.createContact = asyncHandler(async(req, res, next)=>{
 // @route api/v1/contacts/:id
 // @access private
 exports.updateContact = asyncHandler(async(req, res, next)=>{
+    const {name, email, phone, type} = req.body;
 
-    const {name, email,  phone, type} = req.body;
+    const contactField= {};
 
-    const contactField ={}
-
-    if(name){contactField.name=name}
-    if(email){contactField.email=email}
-    if(phone){contactField.phone=phone}
-    if(type){contactField.type=type}
+    if(name) contactField.name = name;
+    if(email) contactField.email = email;
+    if(phone) contactField.phone = phone;
+    if(type) contactField.type =type;
 
     let contact = await Contact.findById(req.params.id);
-    console.log('line 55: ',req.params.id)
-    console.log('line 56: ',contact);
-    if(!contact){
-        return res.status(404).json({msg:'Contact not found'});
-    }
 
-    if(contact.user.toString() !== req.user.id){
-
-        return res.status(401).json({msg:'Not Authorized'});
-    }
-    console.log('line 65: ',contactField);
-    const nt = await Contact.findByIdAndUpdate(req.params.id,
-        {$set:contactField},
-        {new:true}
-    );
+    if(!contact) return res.status(404).json({msg:'Contact not found'})
     
-    console.log(nt);
-    // res.json({contact})
+    if(contact.user.toString() != req.user.id){
+        return res.status(401).json({mgs:'Not Authorized'});
+    }
 
+    contact = await Contact.findByIdAndUpdate(req.params.id,
+        {$set:contactField},
+        {new:true});
+
+    res.json(contact);
 });
 
-// @desc
-// @route
-// @access
-exports.exampleMethodFour= asyncHandler(async(req, res, next)=>{
+// @desc Delete Contact
+// @route /api/v1/contacts
+// @access Private
+exports.deleteContact = asyncHandler(async(req, res, next)=>{
 
+    let contact = await Contact.findById(req.params.id);
+
+    if(!contact) return res.status(404).json({msg:'Contact not found'})
+    
+    if(contact.user.toString() != req.user.id){
+        return res.status(401).json({mgs:'Not Authorized'});
+    }
+
+    await Contact.findByIdAndRemove(req.params.id);
+
+    res.json({msg:'Contact Removed'});
 });
