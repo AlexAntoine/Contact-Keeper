@@ -10,12 +10,12 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACT,
     CLEAR_FILTER
-} from '../types';
+} from "./types"
 
 const ContactState = props =>{
 
     const initialState = {
-        contact:[
+        contacts:[
             {
                 id:1,
                 name:'Alex Antoine',
@@ -42,7 +42,7 @@ const ContactState = props =>{
         ]
     };
 
-    cosnt [state, dispatch] = useReducer(contactReducer, initialState);
+    const [state, dispatch] = useReducer(contactReducer, initialState);
 
     //Actions
 
@@ -64,7 +64,7 @@ const ContactState = props =>{
         <contactContext.Provider value={{
             contacts:state.contacts
         }}>
-            {props.childre}
+            {props.children}
         </contactContext.Provider>
     )
 
