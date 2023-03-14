@@ -34,7 +34,7 @@ const ContactState = props =>{
 
             {
                 id:3,
-                name:'John Sinns',
+                name:'Johnny Sinns',
                 email:'sinns@gmail.com',
                 phone:'111-111-111',
                 type:'Personsal'
