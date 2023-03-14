@@ -8,3 +8,4 @@ middleware that had the user id.
 Backend api complete
 
 useContext hook is not working
+I think useContext is working now 
