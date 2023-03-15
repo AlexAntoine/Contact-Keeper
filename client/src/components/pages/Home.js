@@ -6,7 +6,7 @@ import ContactForm from '../contacts/ContactForms';
   return (
     <div className='grid-2'>
       <div>
-        {/* <ContactForm/> */}
+        <ContactForm/>
       </div>
 
       <div>
