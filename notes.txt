@@ -28,3 +28,5 @@ like this
 <input type='radio' name="type" value="personal" checked={type === 'personal'}>personal{' '}</input>
 
 The form is working and so is the add contact function
+
+added set and clear contact function
