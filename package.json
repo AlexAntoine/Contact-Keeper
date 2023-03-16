@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client":"npm start --prefix client",
-    "clientinstall":"npm install --prefix client",
-    "dev":"concurrently \"npm run server\" \"npm run client\""
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Don-Alex Antoine",
   "license": "MIT",
@@ -27,6 +27,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.1",
     "morgan": "^1.10.0",
+    "react-scripts": "^5.0.1",
     "slugify": "^1.6.5",
     "xss-clean": "^0.1.1"
   },
