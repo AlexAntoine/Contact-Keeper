@@ -12,3 +12,7 @@ I think useContext is working now
 
 Form is not working
 useContext is not working now
+
+tried cloning this on my mac. I had to instal react-scripts 
+for some reason and now there are a whole host of issues.
+FML!!
