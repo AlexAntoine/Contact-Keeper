@@ -32,3 +32,4 @@ The form is working and so is the add contact function
 added set and clear contact function
 
 added edit and clear function. Left off at 7:24
+working on contact filter form and state - 7:07
