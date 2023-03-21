@@ -12,18 +12,10 @@ const Contacts = () => {
     }
 
     return(
+
         <Fragment>
-        { filtered !== null? filtered.map(contact=> ( <ContactItems key={contact.id} contact={contact}/>)):
-          contacts.map(contact =>(<ContactItems key={contact.id} contact={contact}/>))
-        }
-            
-        </Fragment>
-        // <Fragment>
-        
-        //     {contacts.map(contact =>(
-        //         <ContactItems key={contact.id} contact={contact}/>
-        //     ))}
-        // </Fragment>
+            {filtered !== null ? filtered.map(contact => (<ContactItems key={contact.id} contact={contact}/>)): contacts.map(contact =>(<ContactItems key={contact.id} contact={contact}/>))}
+        </Fragment                                                                                                     >
     )
 }
 
