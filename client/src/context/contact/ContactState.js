@@ -76,7 +76,7 @@ const ContactState = props =>{
     }
 
     //Filter Contacts
-    const filterContat = (text)=>{
+    const filterContact = (text)=>{
         dispatch({type: FILTER_CONTACT, payload:text});
     }
 
@@ -91,7 +91,7 @@ const ContactState = props =>{
             contacts:state.contacts,
             current:state.current,
             flitered:state.filtered,
-            filterContat,
+            filterContact,
             clearFilter,
             addContact,
             setCurrent,
