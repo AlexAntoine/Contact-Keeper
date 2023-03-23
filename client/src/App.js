@@ -3,6 +3,7 @@ import React,{Fragment} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
+import Register from './components/auth/Register';
 import './App.css';
 
 import ContactState from "./context/contact/ContactState";
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/about' element={<About/>}/>
+              <Route path='/register' element={<Register/>}/>
             </Routes>
         </div>
         </Fragment>
