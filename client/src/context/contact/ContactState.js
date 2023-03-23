@@ -10,7 +10,7 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACT,
     CLEAR_FILTER
-} from "./types"
+} from "../types"
 
 const ContactState = props =>{
 
@@ -20,7 +20,7 @@ const ContactState = props =>{
                 id:1,
                 name:'Alex Antoine',
                 email:'a@gmail.com',
-                phone:'111-111-111',
+                phone:'111-111-1111',
                 type:'Personsal'
             },
 
@@ -28,7 +28,7 @@ const ContactState = props =>{
                 id:2,
                 name:'Matt White',
                 email:'mwhite@gmail.com',
-                phone:'111-111-111',
+                phone:'111-111-1111',
                 type:'Personsal'
             },
 
@@ -36,7 +36,7 @@ const ContactState = props =>{
                 id:3,
                 name:'Johnny Sinns',
                 email:'sinns@gmail.com',
-                phone:'111-111-111',
+                phone:'111-111-1111',
                 type:'Personsal'
             }
         ],

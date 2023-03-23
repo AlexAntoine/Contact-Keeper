@@ -6,22 +6,25 @@ import About from './components/pages/About';
 import './App.css';
 
 import ContactState from "./context/contact/ContactState";
+import AuthState from './context/auth/AuthState';
 
 function App() {
   return (
-    <ContactState>
-    <Router>
-       <Fragment className="App">
-       <Navbar/>
-       <div className='container'>
-          <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/about' element={<About/>}/>
-          </Routes>
-       </div>
-      </Fragment>
-    </Router>
-    </ContactState>
+    <AuthState>
+      <ContactState>
+      <Router>
+        <Fragment className="App">
+        <Navbar/>
+        <div className='container'>
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/about' element={<About/>}/>
+            </Routes>
+        </div>
+        </Fragment>
+      </Router>
+      </ContactState>
+    </AuthState>
   );
 }
 

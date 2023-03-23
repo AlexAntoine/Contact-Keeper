@@ -6,7 +6,7 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACT,
     CLEAR_FILTER
-} from "./types"
+} from "../types"
 
 
 export default (state, action) =>{
