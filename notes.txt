@@ -35,3 +35,5 @@ added edit and clear function. Left off at 7:24
 working on contact filter form and state - 7:07
 
 client side is complete. Might have to work on the filter function later.
+
+working on user registration
