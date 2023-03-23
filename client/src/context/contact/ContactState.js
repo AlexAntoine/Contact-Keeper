@@ -82,7 +82,7 @@ const ContactState = props =>{
 
     //Clear Filter
     const clearFilter = ()=>{
-        dispatch({type: null});
+        dispatch({type:CLEAR_FILTER, payload:null});
     }
 
 
