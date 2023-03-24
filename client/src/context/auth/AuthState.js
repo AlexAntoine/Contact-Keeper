@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react';
 import axios from 'axios';
 import AuthContext from './AuthContext';
-// import AuthReducer from "./AuthReducer";
+import AuthReducer from "./AuthReducer";
 import {
    REGISTER_SUCCESS,
    REGISTER_FAIL,
@@ -28,6 +28,7 @@ const AuthState = props =>{
     //Actions
 
     //Load User
+    const loadUser = ()=> console.log('load user');
 
     //Register User
     const register = async(formData)=>{
@@ -52,10 +53,11 @@ const AuthState = props =>{
         }
     }
     //Login User
-
+    const login = ()=> console.log('login user');
     //Logout
-
+    const logout = ()=> console.log('logout user');
     //Clear Errors
+    const clearError = ()=> dispatch({type: CLEAR_ERRORS});
 
     return (
         <AuthContext.Provider value={{
@@ -64,6 +66,11 @@ const AuthState = props =>{
            loading: state.loading,
            user: state.user,
            error: state.error,
+           register,
+           login,
+           logout,
+           clearError,
+           loadUser
             
         }}>
             {props.children}
