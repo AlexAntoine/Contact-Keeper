@@ -37,3 +37,8 @@ working on contact filter form and state - 7:07
 client side is complete. Might have to work on the filter function later.
 
 working on user registration
+
+loaduser() is failing. The token is not being properly load in. /api/v1/auth is returning 
+No token, authorization denied. There is a possible solution in video 64. 
+
+I definitely broke something. It was work okay before I added more code.
