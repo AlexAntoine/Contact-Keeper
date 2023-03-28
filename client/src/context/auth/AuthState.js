@@ -38,13 +38,14 @@ const AuthState = props =>{
 
         try{
             const res = await axios.get('/api/v1/auth');
-
+            console.log('AuthState line 41: ', res);
             dispatch({
                 type:USER_LOADED,
                 payload: res.data
-            })
-        }catch(err){
+            });
 
+        }catch(err){
+            console.log('AutState line 47: ', err);
             dispatch({
                 type: AUTH_ERROR,
             })
@@ -61,14 +62,14 @@ const AuthState = props =>{
 
         try{
             const res = await axios.post('api/v1/users', formData, config);
-
+            console.log('authState line 61: ', res);
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data
             });
 
             loadUser();
-            
+
         }catch(err){
             dispatch({
                 type:REGISTER_FAIL,
